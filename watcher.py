@@ -15,8 +15,8 @@ runnable = True
 
 bot = telebot.TeleBot(TOKEN)
 
-key_words = ['бот', 'телеграм', 'телеграм бот', 'бот телеграм', 'бот для телеграм', 'telegram bot', 'telegram', 'bot']
-except_words = ['доработ']
+key_words = ['телеграм', 'телеграм бот', 'бот телеграм', 'бот для телеграм', 'telegram bot', 'telegram', 'bot']
+except_words = ['доработ', 'ботка', 'обработ']
 test_tags = ['дизайн']
 
 
@@ -55,7 +55,7 @@ def search_tasks_by_words(words: list, except_words: list) -> list:
         description_lower: str = description.lower()
         for word in words:
             for except_word in except_words:
-                if word in description_lower and except_word not in description_lower:
+                if word.lower() in description_lower and except_word.lower() not in description_lower:
                     if not task_exists(order_id):
                         save_task(order_id, description)
                         print('Save task %s %s' % (order_id, description,))
@@ -91,17 +91,18 @@ if __name__ == '__main__':
 
                     nextButton = driver.find_element_by_id('identifierNext')
                     nextButton.click()
-                    time.sleep(3)
+                    time.sleep(2)
                     ActionChains(driver).send_keys(password).perform()
                     element = driver.find_element_by_id('passwordNext')
                     driver.execute_script("arguments[0].click();", element)
-                    time.sleep(5)
+                    #time.sleep(5)
                     driver.get('https://client.work-zilla.com/freelancer')
                     driver.find_element_by_class_name('google-icon').click()
-                    input('Done?')
+                    time.sleep(10)
+
                 print('Start check tasks')
                 res = search_tasks_by_words(key_words, except_words)
-                print('Sleep 30 minutes')
-                time.sleep(1800)
+                print('Sleep 5 minutes')
+                time.sleep(60*5)
             except KeyboardInterrupt:
                 driver.quit()
