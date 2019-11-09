@@ -1,8 +1,8 @@
 import os
-TOKEN = "879369950:AAHGuZ7nGfdaCu7HtFFWmbXGy_G1bYDexAo"
-CHROME_DRIVER_PATH = os.path.abspath('chromedriver.exe')
-mail = 'your@gmail.com'
-password = 'Your_password_123'
+TOKEN = "912590787:AAF_uuHBKhWC8fzr1Q-aPguqkf5KxOpHxlo"
+CHROME_DRIVER_PATH = os.path.abspath('chromedriver')
+mail = 'archieruin@gmail.com'
+password = '102938382910RuinArchie'
 cache_file = 'cache.txt'
 
 if __name__ == '__main__':
